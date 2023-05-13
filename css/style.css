@@ -65,22 +65,68 @@ header {
 }
 
 .reply-img {
-  width: 50px;
+  width: 30px;
   position: absolute;
   top: -70px;
   right: 50%;
 }
 
+@keyframes shake {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  40%{
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(-10deg)
+  }
+}
+
+
+@keyframes forward {
+  0% {
+    transform: translate(20px);
+  }
+
+  100% {
+    transform: translate(0px);
+  }
+}
+
 .reply-img > img {
   width: 100%;
+  display: block;
+  transition: 500ms ease-in-out;
+}
+
+.reply-img > img.shake {
+  width: 100%;
+  display: block;
+  transition: 500ms ease-in-out;
+  animation: shake 2s linear 0s infinite alternate;
+}
+
+.reply-img > img.forward {
+  width: 100%;
+  display: block;
+  transition: 500ms ease-in-out;
+  animation: forward 2s linear 0s infinite alternate;
 }
 
 input[type="text"] {
   width: 100%;
   height: 50px;
   transition: 500ms ease-in-out;
-  border: 1px solid var(--primary);
-  border-radius: 0px 0px 0px 0px;
+  background-color: var(--accent);
+  border-radius: 10px 0px 0px 10px;
+  border: transparent;
   outline: transparent;
   font-size: 1.8rem;
   padding-left: 15px;
@@ -92,12 +138,19 @@ input[type="text"]:focus {
 
 button {
   width: 40%;
-  border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 10px 10px 0px;
   font-size: 1.4rem;
   font-weight: 600;
   background-color: var(--primary);
   border: 1px solid var(--primary);
   color: var(--accent);
+  transition: .5s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--accent-two);
+  border: 1px solid var(--accent-two);
+  color: var(--primary);
 }
 
 /*
