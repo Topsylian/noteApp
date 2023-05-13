@@ -1,0 +1,34 @@
+@keyframes shake {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  40%{
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(-10deg)
+  }
+}
+
+
+@keyframes forward {
+  0% {
+    transform: translate(20px);
+  }
+
+  100% {
+    transform: translate(0px);
+  }
+}
+
+@keyframes leftAndRight {
+  0% {
+    transform: translate(-100%);
+  }
+}
