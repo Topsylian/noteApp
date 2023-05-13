@@ -3,6 +3,7 @@ const addBtn = document.querySelector("button");
 const inputText = document.querySelector("input[type=text]");
 const replyEmoji = document.querySelector("section.reply-img > img");
 
+
 inputText.addEventListener("focus", () => {
 	replyEmoji.style.display = "block";
 	replyEmoji.src = './icon/thinking.png';
@@ -14,4 +15,4 @@ inputText.addEventListener("blur", () => {
 	replyEmoji.src = './icon/party.png';
 	replyEmoji.classList.add('forward');
 	replyEmoji.classList.remove('shake');
-})
+});
