@@ -50,7 +50,7 @@ p {
 
 
 main {
-  padding: 2% 8%;
+  padding: 2% 4%;
 }
 
 header {
@@ -60,6 +60,18 @@ header {
 .text-wrapper {
   width: 100%;
   display: flex;
+  position: relative;
+}
+
+.reply-img {
+  width: 50px;
+  position: absolute;
+  top: -70px;
+  right: 50%;
+}
+
+.reply-img > img {
+  width: 100%;
 }
 
 input[type="text"] {
