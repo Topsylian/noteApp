@@ -10,27 +10,42 @@
   scroll-behavior: smooth;
 }
 
+:root {
+  --secondary: #ffffff;
+  --accent: #ece5dd;
+  --primary: #4f5255;
+  --text: #4f5255a0;
+  --accent-two: #25d366;
+}
+
 html,
 body {
   width: 100%;
   height: 100vh;
-  background-color: white;
-  color: rgb(59, 140, 59);
-	font-family: 'Inter', sans-serif;
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-family: "Inter", sans-serif;
   overflow-x: hidden;
-  font-size: 100%;
-  font-family: '';
+  font-size: 62.5%;
+  font-family: "";
   cursor: pointer;
 }
 
+main {
+  padding: 2% 8%;
+}
+
 h1 {
-	font-size: 2rem;
-	font-family: 'Inter', sans-serif;
+  font-size: 3.2rem;
+  font-family: "Aclonica", sans-serif;
 }
 
 p {
-	font-size: 1.5rem;
-font-family: 'Open Sans', sans-serif;
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: var(--text);
+	line-height: 1.6;
+	word-spacing: 4px;
 }
 /*
 font-family: 'Aclonica', sans-serif;
