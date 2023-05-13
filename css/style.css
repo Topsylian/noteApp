@@ -82,6 +82,7 @@ input[type="text"] {
   border-radius: 10px 0px 0px 10px;
   outline: transparent;
   font-size: 1.8rem;
+  padding-left: 15px;
 }
 
 input[type="text"]:focus {
