@@ -1,0 +1,36 @@
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+  list-style-type: none;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  color: rgb(59, 140, 59);
+	font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  font-size: 100%;
+  font-family: '';
+  cursor: pointer;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+/*
+font-family: 'Aclonica', sans-serif;
+font-family: 'Cinzel', serif;
+font-family: 'Inter', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Poppins', sans-serif;
+*/
