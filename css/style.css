@@ -35,10 +35,6 @@ body {
   cursor: pointer;
 }
 
-main {
-  padding: 2% 8%;
-}
-
 h1 {
   font-size: 3.2rem;
   font-family: "Aclonica", sans-serif;
@@ -51,6 +47,46 @@ p {
 	line-height: 1.6;
 	word-spacing: 4px;
 }
+
+
+main {
+  padding: 2% 8%;
+}
+
+header {
+  margin-bottom: 100px;
+}
+
+.text-wrapper {
+  width: 100%;
+  display: flex;
+}
+
+input[type="text"] {
+  width: 100%;
+  height: 50px;
+  transition: 500ms ease-in-out;
+  border: 1px solid var(--primary);
+  border-radius: 10px 0px 0px 10px;
+  outline: transparent;
+  font-size: 1.8rem;
+}
+
+input[type="text"]:focus {
+  border: 1px solid var(--accent-two);
+}
+
+input[type="submit"] {
+  width: 30%;
+  height: 50px;
+  border-radius: 0px 150px 150px 0px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  color: var(--accent);
+}
+
 /*
 font-family: 'Aclonica', sans-serif;
 font-family: 'Cinzel', serif;
