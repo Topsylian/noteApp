@@ -16,12 +16,9 @@ inputText.appendChild(correct);
 
 let firstWelcomeText = `Hello, welcome to your Todo list app. `;
 let secondWelcomeText = `What are your tasks for today?!`;
-greet.textContent = firstWelcomeText;
 
-setTimeout(() => {
-  greet.textContent = secondWelcomeText;
-  greet.style.color = "var(--primary)";
-}, 2000);
+greet.textContent = secondWelcomeText;
+greet.style.color = "var(--primary)";
 
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -36,8 +33,8 @@ addBtn.addEventListener("click", (e) => {
   /*style the form holding the result*/
 
   formResult.setAttribute("id", "todo-list");
-	formResult.setAttribute("action", "#");
-	formResult.style.gap = "5px";
+  formResult.setAttribute("action", "#");
+  formResult.style.gap = "5px";
 
   /*style the container holding checkbox input*/
 
@@ -63,9 +60,9 @@ addBtn.addEventListener("click", (e) => {
   let value = inputText.value;
   let formWrap = inputHolder;
   formWrap.appendChild(form);
-	showResult.textContent = value;
+  showResult.textContent = value;
 
-	/*add reply emoji when the button is also clicked and input filed is empty and when something was written*/
+  /*add reply emoji when the button is also clicked and input filed is empty and when something was written*/
 
   if (inputText.value === "") {
     greet.textContent = `You've added an empty task! Please input a new task`;
@@ -73,16 +70,52 @@ addBtn.addEventListener("click", (e) => {
     replyEmoji.style.transition = ".85s ease-in-out";
     replyEmoji.src = "./icon/sad.png";
   } else {
-    greet.textContent = `You've added a task!`;
+    greet.textContent = `You sef wan serious with your life!`;
     replyEmoji.src = "./icon/party.png";
-	}
-	
-	//add functionality to the checkbox
-	if (e.target.tagName === 'input') {
-		console.log("Please, I'm select button");
-	}
-});
+  }
 
+	form.addEventListener(
+    "click",
+    (e) => {
+      //add functionality to the checkbox
+      if (e.currentTarget.tagName === "FORM") {
+        console.log(`${e.currentTarget.tagName}`);
+      } else {
+        console.log("Nothing found eje!");
+      }
+    },
+    { capture: true }
+	);
+
+	checkTask.addEventListener(
+    "click",
+    (e) => {
+      //add functionality to the checkbox
+			if (e.currentTarget.tagName === "INPUT") {
+				showResult.style.textDecoration = "line-through";
+				greet.textContent = `Wow, you've accomplished a task, press delete icon to delete task!`
+        console.log(`${e.currentTarget.tagName}`);
+      } else {
+        console.log("Nothing found eje!");
+      }
+    },
+    { capture: true }
+	);
+	
+	
+	deleteTaskIcon.addEventListener(
+    "click",
+    (e) => {
+      //add functionality to the delete
+			if (e.currentTarget.tagName === "IMG") {
+				greet.textContent = `Delete successful!`
+				form.style.display = "none";
+				replyEmoji.src = "./icon/correct.png";
+			}
+    },
+    { capture: true }
+  );
+});
 /*The event that triggers the emoji*/
 
 inputText.addEventListener("focus", () => {
@@ -98,23 +131,24 @@ inputText.addEventListener("blur", () => {
   replyEmoji.classList.add("forward");
   replyEmoji.classList.remove("shake");
   if (inputText.value === "") {
-    greet.textContent = `You've added an empty task! Please input a new task`;
+    greet.textContent = `Please input a task`;
     replyEmoji.src = "./icon/sad.png";
   } else {
-    greet.textContent = `You've added a task!`;
-    replyEmoji.src = "./icon/party.png";
+    greet.textContent = `Omo you don add task oh!, abeg press (Add) button to add am!`;
+    replyEmoji.src = "./icon/correct.png";
   }
 });
 
-header.addEventListener("pointerover", (e) => {
-  e.target.classList.add("shift");
-}, true);
+header.addEventListener(
+  "pointerover",
+  (e) => {
+    e.target.classList.toggle("shift");
+  }
+);
 
-header.addEventListener("pointerout", (e) => {
-  e.target.classList.remove("shift");
-}, true);
-/*input text result functionality*/
-
-/*select elements that are going to change in th result*/
-
-/*add event to the add button to add tasks*/
+header.addEventListener(
+  "pointerout",
+  (e) => {
+    e.target.classList.remove("shift");
+  }
+);
