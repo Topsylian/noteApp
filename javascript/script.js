@@ -1,5 +1,5 @@
 const body = document.querySelector("body");
-const header = document.querySelector("header");
+const header = document.querySelector("header > h1");
 const container = document.querySelector(".todo-container");
 const greet = document.querySelector("p.show");
 const addBtn = document.querySelector(".text-wrapper >button");
@@ -64,85 +64,76 @@ addBtn.addEventListener("click", (e) => {
 
   /*add reply emoji when the button is also clicked and input filed is empty and when something was written*/
 
-  if (inputText.value === "") {
+  if (inputText.value === "" && e.target === addBtn) {
     greet.textContent = `You've added an empty task! Please input a new task`;
     replyEmoji.style.visibility = "visible";
     replyEmoji.style.transition = ".85s ease-in-out";
-    replyEmoji.src = "./icon/sad.png";
+    replyEmoji.src = "./icon/neutral.png";
   } else {
-    greet.textContent = `You sef wan serious with your life!`;
-    replyEmoji.src = "./icon/party.png";
+    greet.textContent = `Task added!`;
+    replyEmoji.src = "./icon/confetti.png";
   }
 
-  form.addEventListener(
-    "click",
-    (e) => {
-      //add functionality to the checkbox
-      if (e.currentTarget.tagName === "FORM") {
-        console.log(`${e.currentTarget.tagName}`);
-      } else {
-        console.log("Nothing found eje!");
-      }
-    },
-    { capture: true }
-  );
-
-  checkTask.addEventListener(
-    "click",
-    (e) => {
-      //add functionality to the checkbox
-      if (e.currentTarget.tagName === "INPUT" && checkTask.checked) {
-        showResult.style.textDecoration = "line-through";
-        greet.textContent = `Wow, you've accomplished a task, uncheck to continue task or press delete icon to delete task!`;
-        console.log(`${e.currentTarget.tagName}`);
-        replyEmoji.src = "./icon/party.png";
-      } else {
-        replyEmoji.src = "./icon/lovely.png";
-        showResult.style.textDecoration = "none";
-        greet.textContent = `Continue task`;
-      }
-    },
-    { capture: true }
-  );
+  checkTask.addEventListener("click", (e) => {
+    //add functionality to the checkbox
+    if (e.currentTarget.tagName === "INPUT" && checkTask.checked && showResult.textContent == "") {
+      showResult.style.textDecoration = "line-through";
+      greet.textContent = `Oops, that was an empty task!`;
+      console.log(`${e.currentTarget.tagName}`);
+      replyEmoji.src = "./icon/sad.png";
+    } else if (e.currentTarget.tagName === "INPUT" && checkTask.checked && showResult.textContent !== "") {
+      showResult.style.textDecoration = "line-through";
+      greet.textContent = `Wow, you've accomplished a task, uncheck to continue task or press delete icon to delete task!`;
+      console.log(`${e.currentTarget.tagName}`);
+      replyEmoji.src = "./icon/party.png";
+    } else {
+      replyEmoji.src = "./icon/lovely.png";
+      showResult.style.textDecoration = "none";
+      greet.textContent = `Continue task`;
+    }
+  });
 
   deleteTaskIcon.addEventListener(
     "click",
     (e) => {
       //add functionality to the delete
       if (e.currentTarget.tagName === "IMG") {
-        greet.textContent = `Delete successful!`;
+        greet.textContent = `Task deleted!`;
         form.style.display = "none";
-        replyEmoji.src = "./icon/correct.png";
+        replyEmoji.src = "./icon/bin.png";
       }
     },
     { capture: true }
   );
 
-  inputText.focus();
   inputText.value = "";
+});
+
+addBtn.addEventListener("focus", function () {
+  if (document.activeElement === addBtn) {
+    addBtn.blur();
+    addBtn.style.boxShadow = "1px 1px 10px 1px var(--accent-two)";
+  } else {
+    addBtn.style.boxShadow = "1px 1px 10px 1px yellow";
+  }
 });
 /*The event that triggers the emoji*/
 
-inputText.addEventListener("focus", () => {
-  if (inputText.value === "" && document.activeElement !== addBtn) {
-    replyEmoji.style.visibility = "visible";
-    replyEmoji.style.transition = ".85s ease-in-out";
-    replyEmoji.src = "./icon/thinking.png";
-    replyEmoji.classList.add("shake");
-    replyEmoji.classList.remove("forward");
-    greet.textContent = `Hi, I'm waiting for you to type`;
-	} else {
-		greet.textContent = `Waiting for you to add task or keep typing`;
-		replyEmoji.src = './icon/thinking.png';
-	}
+inputText.addEventListener("focus", (e) => {
+	replyEmoji.style.visibility = "visible";
+  replyEmoji.style.transition = ".85s ease-in-out";
+  replyEmoji.src = "./icon/thinking.png";
+  replyEmoji.classList.add("shake");
+	replyEmoji.classList.remove("forward");
+	greet.textContent = 'waiting for your task...';
 });
 
 inputText.addEventListener("keydown", () => {
   replyEmoji.style.visibility = "visible";
   replyEmoji.style.transition = ".85s ease-in-out";
-  replyEmoji.src = "./icon/thinking.png";
-  replyEmoji.classList.add("shake");
-  replyEmoji.classList.remove("forward");
+  replyEmoji.src = "./icon/coding.png";
+  replyEmoji.classList.remove("shake");
+  replyEmoji.classList.add("forward");
   greet.textContent = `Typing...`;
 });
 
@@ -170,7 +161,7 @@ inputText.addEventListener("blur", () => {
 });
 
 header.addEventListener("pointerover", (e) => {
-  e.target.classList.toggle("shift");
+  e.target.classList.add("shift");
 });
 
 header.addEventListener("pointerout", (e) => {

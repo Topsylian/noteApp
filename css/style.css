@@ -68,7 +68,7 @@ header > h1 {
 
 header > h1.shift {
   transition: 850ms ease-in-out;
-  transform: translate( 50px);
+  box-shadow: 1px 1px 10px 1px pink;
 }
 
 p.show {
@@ -111,7 +111,7 @@ p.show {
   width: 40px;
   display: block;
   transition: 800ms ease-in-out;
-  visibility: hidden;
+  visibility: visible;
 }
 
 .reply-img > img.shake {
@@ -159,12 +159,11 @@ button {
   border: 1px solid var(--primary);
   color: var(--accent);
   transition: 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 button:hover {
-  background-color: var(--accent-two);
-  border: 1px solid var(--accent-two);
-  color: var(--primary);
+  box-shadow: 1px 1px 10px 1px var(--accent-two);
 }
 
 
