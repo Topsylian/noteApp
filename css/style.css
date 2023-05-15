@@ -64,7 +64,7 @@ header {
 }
 
 header.shift {
-  transform: translate( 20px);
+  transform: translate( 50px);
 }
 
 p.show {

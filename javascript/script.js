@@ -51,7 +51,8 @@ addBtn.addEventListener("click", (e) => {
   /*style the p element that show tasks*/
 
   formResult.appendChild(showResult);
-  showResult.setAttribute("class", "show-task");
+	showResult.setAttribute("class", "show-task");
+	showResult.style.fontSize = "1.4rem";
   showResult.textContent = "";
 
   /*style the container holding checkbox input*/
@@ -80,10 +81,13 @@ inputText.addEventListener("blur", () => {
   replyEmoji.classList.remove("shake");
 });
 
-inputText.addEventListener("touchmove", () => {
-	header.classList.toggle('shift');
+header.addEventListener("pointerenter", () => {
+	header.classList.add('shift');
 });
 
+header.addEventListener("pointerleave", () => {
+	header.classList.remove('shift');
+});
 /*input text result functionality*/
 
 /*select elements that are going to change in th result*/
