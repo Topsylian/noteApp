@@ -133,6 +133,7 @@ inputText.addEventListener("focus", () => {
     greet.textContent = `Hi, I'm waiting for you to type`;
 	} else {
 		greet.textContent = `Waiting for you to add task or keep typing`;
+		replyEmoji.src = './icon/thinking.png';
 	}
 });
 
