@@ -81,7 +81,7 @@ inputText.addEventListener("blur", () => {
   replyEmoji.classList.remove("shake");
 });
 
-header.addEventListener("pointerenter", () => {
+header.addEventListener("pointerover", () => {
 	header.classList.add('shift');
 });
 
