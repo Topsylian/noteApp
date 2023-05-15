@@ -59,11 +59,17 @@ main {
 }
 
 header {
+  padding: 2% 0;
   transition: 500ms ease-in-out;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 }
 
-header.shift {
+header > h1 {
+  transition: 850ms ease-in-out;
+}
+
+header > h1.shift {
+  transition: 850ms ease-in-out;
   transform: translate( 50px);
 }
 
@@ -73,10 +79,10 @@ p.show {
   font-size: 2rem;
   font-weight: 600;
   font-family: "Aclonica", sans-serif;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   color: var(--primary);
   text-align: center;
-  animation: leftAndRight 2s linear 0s 1 alternate;
+  animation: leftAndRight .8s linear 0s 1 alternate;
 }
 
 
@@ -92,26 +98,28 @@ p.show {
 }
 
 .reply-img {
-  width: 30px;
-  margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .reply-img > img {
-  width: 100%;
+  width: 40px;
   display: block;
   transition: 800ms ease-in-out;
   visibility: hidden;
 }
 
 .reply-img > img.shake {
-  width: 100%;
+  width: 40px;
   display: block;
   transition: 800ms ease-in-out;
   animation: shake 2s linear 0s infinite alternate;
 }
 
 .reply-img > img.forward {
-  width: 100%;
+  width: 40px;
   display: block;
   transition: 800ms ease-in-out;
   animation: forward 2s linear 0s infinite alternate;
