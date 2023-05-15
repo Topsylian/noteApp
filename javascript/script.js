@@ -160,9 +160,5 @@ inputText.addEventListener("blur", () => {
 });
 
 header.addEventListener("pointerover", (e) => {
-  e.target.classList.add("shift");
-});
-
-header.addEventListener("pointerout", (e) => {
-  e.target.classList.remove("shift");
+  e.target.classList.toggle("shift");
 });
