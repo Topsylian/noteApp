@@ -116,7 +116,10 @@ addBtn.addEventListener("click", (e) => {
       }
     },
     { capture: true }
-  );
+	);
+	
+	inputText.focus();
+	inputText.value = "";
 });
 /*The event that triggers the emoji*/
 
@@ -159,7 +162,6 @@ inputText.addEventListener("blur", () => {
     greet.textContent = `Omo you don add task oh!, abeg press (Add) button to add am!`;
     replyEmoji.src = "./icon/correct.png";
   }
-  inputText.focus();
 });
 
 header.addEventListener("pointerover", (e) => {
