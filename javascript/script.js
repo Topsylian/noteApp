@@ -1,23 +1,31 @@
 const body = document.querySelector("body");
+const header = document.querySelector("header");
 const container = document.querySelector(".todo-container");
 const greet = document.querySelector("p.show");
 const addBtn = document.querySelector(".text-wrapper >button");
 const inputText = document.querySelector("input[type=text]");
 const replyEmoji = document.querySelector("section.reply-img > img");
 
-greet.textContent = "";
+
 
 /*The welcome texts*/
 
 let firstWelcomeText = `Hello, welcome to your Todo list app. `;
-let secondWelcomeText = `What are your tasks for the day?!`;
+let secondWelcomeText = `What are your tasks for today?!`;
+greet.textContent = firstWelcomeText;
+
+setTimeout(() => {
+	greet.textContent = secondWelcomeText;
+	greet.style.color = 'var(--primary)';
+}, 5000);
 
 const listResult = document.createElement("section");
 
-addBtn.addEventListener("click", () => {
-  let value = inputText.value;
+addBtn.addEventListener("click", (e) => {
+	e.preventDefault();
+	
+	let value = inputText.value;
 
-  
   const formResult = document.createElement("form");
   const checkTaskBox = document.createElement("section");
   const showResult = document.createElement("p");
@@ -38,9 +46,8 @@ addBtn.addEventListener("click", () => {
   formResult.appendChild(checkTaskBox);
   checkTaskBox.setAttribute("class", "check-wrapper");
   checkTaskBox.appendChild(checkTask);
-  checkTask.type = "checkbox";
+	myCheck = checkTask.setAttribute("type", "checkbox");
   checkTask.setAttribute("id", "check");
-
   /*style the p element that show tasks*/
 
   formResult.appendChild(showResult);
@@ -65,13 +72,16 @@ inputText.addEventListener("focus", () => {
   replyEmoji.src = "./icon/thinking.png";
   replyEmoji.classList.add("shake");
   replyEmoji.classList.remove("forward");
-  greet.style.visibility = "visible";
 });
 
 inputText.addEventListener("blur", () => {
   replyEmoji.src = "./icon/party.png";
   replyEmoji.classList.add("forward");
   replyEmoji.classList.remove("shake");
+});
+
+inputText.addEventListener("touchmove", () => {
+	header.classList.toggle('shift');
 });
 
 /*input text result functionality*/

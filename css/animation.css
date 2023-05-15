@@ -32,3 +32,30 @@
     transform: translate(-100%);
   }
 }
+
+
+@keyframes shake {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  20%{
+    transform: rotate(10deg);
+  }
+
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(-10deg)
+  }
+
+	80% {
+    transform: rotate(-10deg);
+  }
+
+  1000% {
+    transform: rotate(-10deg)
+  }
+}

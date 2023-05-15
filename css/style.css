@@ -59,19 +59,26 @@ main {
 }
 
 header {
+  transition: 500ms ease-in-out;
   margin-bottom: 100px;
+}
+
+header.shift {
+  transform: translate( 20px);
 }
 
 p.show {
   width: 100%;
   height: 40px;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 600;
   font-family: "Aclonica", sans-serif;
   margin-bottom: 50px;
+  color: var(--primary);
   text-align: center;
-  /*animation: 2s linear 0s 1 alternate;*/
+  animation: leftAndRight 2s linear 0s 1 alternate;
 }
+
 
 #todo-form {
   margin-bottom: 20px;
@@ -86,9 +93,7 @@ p.show {
 
 .reply-img {
   width: 30px;
-  position: absolute;
-  top: -70px;
-  right: 50%;
+  margin-bottom: 30px;
 }
 
 .reply-img > img {
@@ -120,7 +125,7 @@ input[type="text"] {
   border-radius: 10px 0px 0px 10px;
   border: transparent;
   outline: transparent;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   padding-left: 15px;
   font-family: var(--inter);
 }
@@ -131,6 +136,7 @@ input[type="text"]:focus {
 
 #text::placeholder {
   font-family: var(--poppins);
+  font-size: 1.6rem;
 }
 
 button {
