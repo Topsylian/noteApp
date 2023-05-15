@@ -36,7 +36,8 @@ addBtn.addEventListener("click", (e) => {
   /*style the form holding the result*/
 
   formResult.setAttribute("id", "todo-list");
-  formResult.setAttribute("action", "#");
+	formResult.setAttribute("action", "#");
+	formResult.style.gap = "5px";
 
   /*style the container holding checkbox input*/
 
