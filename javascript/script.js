@@ -116,20 +116,24 @@ addBtn.addEventListener("click", (e) => {
       }
     },
     { capture: true }
-	);
-	
-	inputText.focus();
-	inputText.value = "";
+  );
+
+  inputText.focus();
+  inputText.value = "";
 });
 /*The event that triggers the emoji*/
 
 inputText.addEventListener("focus", () => {
-  replyEmoji.style.visibility = "visible";
-  replyEmoji.style.transition = ".85s ease-in-out";
-  replyEmoji.src = "./icon/thinking.png";
-  replyEmoji.classList.add("shake");
-  replyEmoji.classList.remove("forward");
-  greet.textContent = `Hi, I'm waiting for you to type`;
+  if (inputText.value === "") {
+    replyEmoji.style.visibility = "visible";
+    replyEmoji.style.transition = ".85s ease-in-out";
+    replyEmoji.src = "./icon/thinking.png";
+    replyEmoji.classList.add("shake");
+    replyEmoji.classList.remove("forward");
+    greet.textContent = `Hi, I'm waiting for you to type`;
+	} else {
+		greet.textContent = `Waiting for you to add task or keep typing`;
+	}
 });
 
 inputText.addEventListener("keydown", () => {
@@ -159,7 +163,7 @@ inputText.addEventListener("blur", () => {
     greet.textContent = `Please input a task`;
     replyEmoji.src = "./icon/sad.png";
   } else {
-    greet.textContent = `Omo you don add task oh!, abeg press (Add) button to add am!`;
+    greet.textContent = `Press (Add) button to add task!`;
     replyEmoji.src = "./icon/correct.png";
   }
 });
