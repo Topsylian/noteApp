@@ -124,7 +124,7 @@ addBtn.addEventListener("click", (e) => {
 /*The event that triggers the emoji*/
 
 inputText.addEventListener("focus", () => {
-  if (inputText.value === "") {
+  if (inputText.value === "" && document.activeElement !== addBtn) {
     replyEmoji.style.visibility = "visible";
     replyEmoji.style.transition = ".85s ease-in-out";
     replyEmoji.src = "./icon/thinking.png";
