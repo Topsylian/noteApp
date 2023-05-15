@@ -47,7 +47,7 @@ addBtn.addEventListener("click", (e) => {
 
   formResult.appendChild(showResult);
   showResult.setAttribute("class", "show-task");
-  showResult.style.fontSize = "1.4rem";
+  showResult.style.fontSize = "1.3rem";
   showResult.textContent = "";
 
   /*style the container holding checkbox input*/
@@ -74,7 +74,7 @@ addBtn.addEventListener("click", (e) => {
     replyEmoji.src = "./icon/party.png";
   }
 
-	form.addEventListener(
+  form.addEventListener(
     "click",
     (e) => {
       //add functionality to the checkbox
@@ -85,33 +85,35 @@ addBtn.addEventListener("click", (e) => {
       }
     },
     { capture: true }
-	);
+  );
 
-	checkTask.addEventListener(
+  checkTask.addEventListener(
     "click",
     (e) => {
       //add functionality to the checkbox
-			if (e.currentTarget.tagName === "INPUT") {
-				showResult.style.textDecoration = "line-through";
-				greet.textContent = `Wow, you've accomplished a task, press delete icon to delete task!`
+      if (e.currentTarget.tagName === "INPUT" && checkTask.checked) {
+        showResult.style.textDecoration = "line-through";
+        greet.textContent = `Wow, you've accomplished a task, uncheck to continue task or press delete icon to delete task!`;
         console.log(`${e.currentTarget.tagName}`);
+        replyEmoji.src = "./icon/party.png";
       } else {
-        console.log("Nothing found eje!");
+        replyEmoji.src = "./icon/lovely.png";
+        showResult.style.textDecoration = "none";
+        greet.textContent = `Continue task`;
       }
     },
     { capture: true }
-	);
-	
-	
-	deleteTaskIcon.addEventListener(
+  );
+
+  deleteTaskIcon.addEventListener(
     "click",
     (e) => {
       //add functionality to the delete
-			if (e.currentTarget.tagName === "IMG") {
-				greet.textContent = `Delete successful!`
-				form.style.display = "none";
-				replyEmoji.src = "./icon/correct.png";
-			}
+      if (e.currentTarget.tagName === "IMG") {
+        greet.textContent = `Delete successful!`;
+        form.style.display = "none";
+        replyEmoji.src = "./icon/correct.png";
+      }
     },
     { capture: true }
   );
@@ -139,16 +141,10 @@ inputText.addEventListener("blur", () => {
   }
 });
 
-header.addEventListener(
-  "pointerover",
-  (e) => {
-    e.target.classList.toggle("shift");
-  }
-);
+header.addEventListener("pointerover", (e) => {
+  e.target.classList.toggle("shift");
+});
 
-header.addEventListener(
-  "pointerout",
-  (e) => {
-    e.target.classList.remove("shift");
-  }
-);
+header.addEventListener("pointerout", (e) => {
+  e.target.classList.remove("shift");
+});
