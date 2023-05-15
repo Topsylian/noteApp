@@ -59,7 +59,7 @@ addBtn.addEventListener("click", (e) => {
   formResult.appendChild(deleteTask);
   deleteTask.setAttribute("class", "todo-clear");
   deleteTask.appendChild(deleteTaskIcon);
-  deleteTaskIcon.src = "/icon/delete.png";
+  deleteTaskIcon.src = "./icon/delete.png";
 
   showResult.textContent = value;
 });
