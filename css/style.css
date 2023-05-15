@@ -68,7 +68,7 @@ header > h1 {
 
 header > h1.shift {
   transition: 850ms ease-in-out;
-  box-shadow: 1px 1px 10px 1px pink;
+  text-shadow: -2px 2px 1px var(--accent-two);
 }
 
 p.show {
@@ -210,11 +210,39 @@ button:hover {
 
 #todo-list > p.show-task {
   width: 95%;
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 400;
   font-family: var(--poppins);
   transition: 500ms ease-in-out;
   color: var(--primary);
+}
+
+@media  screen and (min-width: 768px){
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  main {
+    width: 50%;
+  }
+
+  p.show {
+    font-size: 2.2rem;
+  }
+
+  #todo-list > p.show-task {
+    font-size: 2.0rem;
+  }
+
+  input[type="text"] {
+    height: 60px;
+    font-size: 1.8rem;
+  }
+
+  #text::placeholder {
+    font-size: 1.8rem;
+  }
 }
 /*
 font-family: 'Aclonica', sans-serif;

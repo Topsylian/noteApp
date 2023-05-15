@@ -47,7 +47,6 @@ addBtn.addEventListener("click", (e) => {
 
   formResult.appendChild(showResult);
   showResult.setAttribute("class", "show-task");
-  showResult.style.fontSize = "1.3rem";
   showResult.textContent = "";
 
   /*style the container holding checkbox input*/
