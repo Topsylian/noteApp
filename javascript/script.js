@@ -126,7 +126,27 @@ inputText.addEventListener("focus", () => {
   replyEmoji.src = "./icon/thinking.png";
   replyEmoji.classList.add("shake");
   replyEmoji.classList.remove("forward");
+  greet.textContent = `Hi, I'm waiting for you to type`;
+});
+
+inputText.addEventListener("keydown", () => {
+  replyEmoji.style.visibility = "visible";
+  replyEmoji.style.transition = ".85s ease-in-out";
+  replyEmoji.src = "./icon/thinking.png";
+  replyEmoji.classList.add("shake");
+  replyEmoji.classList.remove("forward");
   greet.textContent = `Typing...`;
+});
+
+inputText.addEventListener("keyup", () => {
+  if (inputText.value === "") {
+    replyEmoji.style.visibility = "visible";
+    replyEmoji.style.transition = ".85s ease-in-out";
+    replyEmoji.src = "./icon/sad.png";
+    replyEmoji.classList.add("shake");
+    replyEmoji.classList.remove("forward");
+    greet.textContent = `Please, input a task`;
+  }
 });
 
 inputText.addEventListener("blur", () => {
@@ -139,6 +159,7 @@ inputText.addEventListener("blur", () => {
     greet.textContent = `Omo you don add task oh!, abeg press (Add) button to add am!`;
     replyEmoji.src = "./icon/correct.png";
   }
+  inputText.focus();
 });
 
 header.addEventListener("pointerover", (e) => {
